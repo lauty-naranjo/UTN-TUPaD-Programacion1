@@ -1,2 +1,2 @@
 # programacion1_trabajos
-Este es el primer cambio en mi rama.
+Este es un cambio de la rama de mi compañero

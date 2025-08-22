@@ -1,14 +1,17 @@
-# Programacion 1 - Trabajos
-💻 Programación 1
+# 💻 Programacion 1 - Trabajos
+
 Tecnicatura Universitaria en Programación
-📍 Universidad Tecnológica Nacional
+
+    📍 Universidad Tecnológica Nacional
 
 ✨ Estudiante
-Nombre: Lautaro Naranjo
-Comisión: Comisión 1
+
+    Nombre: Lautaro Naranjo
+    Comisión: Comisión 1
 
 📂 Descripción del Repositorio
-Este repositorio almacena todas los trabajos prácticos realizados durante la cursada de Programación 1.
+
+    Este repositorio almacena todas los trabajos prácticos realizados durante la cursada de Programación 1.
 
 📌 Estructura del repositorio:
 

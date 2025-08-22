@@ -1,0 +1,12 @@
+numeroP6 = int(input("Ingrese un numero: "))
+
+print (f"{numeroP6} X 1 = ", numeroP6 * 1)
+print (f"{numeroP6} X 2 = ", numeroP6 * 2)
+print (f"{numeroP6} X 3 = ", numeroP6 * 3)
+print (f"{numeroP6} X 4 = ", numeroP6 * 4)
+print (f"{numeroP6} X 5 = ", numeroP6 * 5)
+print (f"{numeroP6} X 6 = ", numeroP6 * 6)
+print (f"{numeroP6} X 7 = ", numeroP6 * 7)
+print (f"{numeroP6} X 8 = ", numeroP6 * 8)
+print (f"{numeroP6} X 9 = ", numeroP6 * 9)
+print (f"{numeroP6} X 10 = ", numeroP6 * 10, "\n")

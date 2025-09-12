@@ -1,0 +1,181 @@
+def pedir_golosinas(empleados, golosinas, golosinasPedidas):
+    
+    codigo_golosina = -1
+    cantidad_pedida = 0
+    legajo = int(input("Ingrese su legajo:"))
+
+    for fila in empleados:
+        if (legajo == fila[0]):
+            print("\nPermiso concedido!")
+            print("Bienvenido: ",fila[1], "\n")
+            break
+    else:
+        print("Usted no es un empleado de la empresa!\n")
+        return
+    
+    while (codigo_golosina < 0 or codigo_golosina > 11):
+        codigo_golosina = int(input("Ingrese el codigo de la golosina que desea: \n"))
+        if (codigo_golosina < 0 or codigo_golosina > 11):
+            print("\nIngrese un codigo valido!")
+                    
+    print("Usted selecciono: ",golosinas[codigo_golosina-1][1], "\n")
+
+    if (golosinas[codigo_golosina-1][2] <= 0):
+        print(f"Lo sentimos la golosina {golosinas[codigo_golosina-1][1]} no se encuentra disponible!")
+        print("Seleccione otra golosina o ingresa salir si no desea otra golosina\n")
+        opcion = 0
+        while (opcion != 1 and opcion != 2):
+            print("1. Seleccionar otra golosina")
+            print("2. Salir")
+            opcion = int(input("Ingrese su opcion:"))
+
+        if(opcion == 1):
+            codigo_golosina = -1
+            while (codigo_golosina < 0 or codigo_golosina > 11):
+                codigo_golosina = int(input("Ingrese el codigo de la golosina que desea: \n"))
+                if (codigo_golosina < 0 or codigo_golosina > 11):
+                    print("\nIngrese un codigo valido!")
+                    
+            print("Usted selecciono: ",golosinas[codigo_golosina-1][1], "\n")
+
+            cantidad_pedida = int(input("Ingrese la cantidad que desea: "))
+            golosinas[codigo_golosina-1][2] -= cantidad_pedida
+
+            golosina_existe = False
+            for golosina in golosinasPedidas:
+                if (golosina[0] == golosinas[codigo_golosina-1][0]):
+                    golosina[2] += cantidad_pedida
+                    golosina_existe = True
+                    break
+            if (golosina_existe == False):
+                golosinasPedidas.append([
+                    golosinas[codigo_golosina-1][0], 
+                    golosinas[codigo_golosina-1][1],
+                    cantidad_pedida
+                ])
+
+    else:
+        cantidad_pedida = int(input("Ingrese la cantidad que desea: "))
+
+        stock_disponible = golosinas[codigo_golosina-1][2]
+        if cantidad_pedida > stock_disponible:
+            print(f"\nSolo hay {stock_disponible} unidades disponibles. Se entregará esa cantidad.")
+            cantidad_pedida = stock_disponible
+
+        golosinas[codigo_golosina-1][2] -= cantidad_pedida
+
+        golosina_existe = False
+        for golosina in golosinasPedidas:
+            if (golosina[0] == golosinas[codigo_golosina-1][0]):
+                golosina[2] += cantidad_pedida
+                golosina_existe = True
+                break
+        if (golosina_existe == False):
+            golosinasPedidas.append([
+                golosinas[codigo_golosina-1][0], 
+                golosinas[codigo_golosina-1][1],
+                cantidad_pedida
+            ])
+
+def mostrar_golosinas(golosinas):
+    print("")
+    print("Golosinas disponibles:")
+    print("")
+    for golosina in golosinas:
+        print(f"Código: {golosina[0]} - {golosina[1]} - Cantidad: {golosina[2]}")
+
+def rellenar_golosinas(claveTecnico, golosinas):
+    i = 0
+    codigo_golsina = -1
+    cantidad_a_rellenar = 0
+    for elemento in claveTecnico:
+        clave = input(f"Ingrese la contraseña paso {i+1}:")
+        if (clave != claveTecnico[i]):
+            print("")
+            print("No tiene permiso para ejercutar la funcion de recarga!")
+            return
+        i += 1
+    print("")
+    print("Permiso concedido!")
+    print("")
+
+    while (codigo_golsina < 0 or codigo_golsina > 11):
+        codigo_golsina = int(input("Ingrese el codigo de la golosina a rellenar: "))
+        if (codigo_golsina < 0 or codigo_golsina > 11):
+            print("")
+            print("Ingrese un codigo valido!")
+    
+    while (cantidad_a_rellenar < 1):
+        print("")
+        cantidad_a_rellenar = int(input("ingrese la cantidad que quiere ingresar: "))
+        if (cantidad_a_rellenar < 1):
+            print("")
+            print("Ingrese una cantidad mayor a 0!")
+        else:
+            golosinas[codigo_golsina-1][2] += cantidad_a_rellenar
+
+def apagar_maquina(golosinasPedidas):
+    suma_golosinas = 0
+
+    print("\nLista de golosinas pedidas:\n")
+    for fila in golosinasPedidas:
+        print(fila)
+
+    for fila in golosinasPedidas[1:]:
+        suma_golosinas += fila[2]
+
+    print(f"\nLa suma de todas las golosinas pedidas es de: {suma_golosinas} ")
+
+    print("\nSaliendo del programa...")
+
+golosinas = [
+    [1, "KitKat", 20],
+    [2, "Chicles", 50],
+    [3, "Caramelo de Menta", 50],
+    [4, "Huevo Kinder", 10],
+    [5, "Chetoos", 10],
+    [6, "Twix", 10],
+    [7, "M&M'S",10],
+    [8, "Papas Lays", 2],
+    [9, "Mikybar", 10],
+    [10, "Alfajor Tofi", 15],
+    [11, "Lata Coca", 20],
+    [12, "Chitos", 10]
+]
+
+empleados = [
+    [1100, "Jose Alonso"],
+    [1200, "Federico Pacheco"],
+    [1300, "Nelson Pereira"],
+    [1400, "Osvaldo Tejada"],
+    [1500, "Gaston Garcia "],
+]
+
+claveTecnico = ["admin", "CCCDDD", "2020"]
+
+golosinasPedidas = [
+    ["Codigo golosina", "Denominacion Golosina", "Cantidad total Pedida"],
+]
+
+opcion = 0
+
+while (opcion != 4):
+    print("")
+    print("Bienvenido a la maquina expendedora!")
+    print("")
+    print("Seleccione una opcion:")
+    print("1. Pedir golosinas")
+    print("2. Mostrar golosinas")
+    print("3. Rellenar golosinas")
+    print("4. Apagar maquina")
+    print("")
+    opcion = int(input("Ingrese una opcion: "))
+
+    if (opcion == 1):
+        pedir_golosinas(empleados, golosinas, golosinasPedidas)
+    elif (opcion == 2):
+        mostrar_golosinas(golosinas)
+    elif (opcion == 3):
+        rellenar_golosinas(claveTecnico, golosinas)
+    elif (opcion == 4):
+        apagar_maquina(golosinasPedidas)

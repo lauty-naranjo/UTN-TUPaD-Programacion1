@@ -13,9 +13,9 @@ def pedir_golosinas(empleados, golosinas, golosinasPedidas):
         print("Usted no es un empleado de la empresa!\n")
         return
     
-    while (codigo_golosina < 0 or codigo_golosina > 11):
+    while (codigo_golosina < 0 or codigo_golosina > 12):
         codigo_golosina = int(input("Ingrese el codigo de la golosina que desea: \n"))
-        if (codigo_golosina < 0 or codigo_golosina > 11):
+        if (codigo_golosina < 0 or codigo_golosina > 12):
             print("\nIngrese un codigo valido!")
                     
     print("Usted selecciono: ",golosinas[codigo_golosina-1][1], "\n")
@@ -31,9 +31,9 @@ def pedir_golosinas(empleados, golosinas, golosinasPedidas):
 
         if(opcion == 1):
             codigo_golosina = -1
-            while (codigo_golosina < 0 or codigo_golosina > 11):
+            while (codigo_golosina < 0 or codigo_golosina > 12):
                 codigo_golosina = int(input("Ingrese el codigo de la golosina que desea: \n"))
-                if (codigo_golosina < 0 or codigo_golosina > 11):
+                if (codigo_golosina < 0 or codigo_golosina > 12):
                     print("\nIngrese un codigo valido!")
                     
             print("Usted selecciono: ",golosinas[codigo_golosina-1][1], "\n")

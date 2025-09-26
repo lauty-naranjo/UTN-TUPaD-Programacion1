@@ -1,0 +1,106 @@
+def recorrer_Diccionario(alumnos):
+    print(" ")
+    print("Lista de Alumnos:")
+    for legajo, nombre in alumnos.items():
+        print(f"Legajo: {legajo}, Nombre: {nombre}")
+
+def llenar_notas_de_materias(materias, alumnos, notas_finales):
+    print(" ")
+    print("Llenar Notas de Materias:")
+
+    for nombre in alumnos.values():
+        print(f"\nAlumno: {nombre}")
+        materias_alumno = [fila[:] for fila in materias]
+
+        for i in range(1, len(materias_alumno)):
+            print(f"\nIngrese las notas para {materias_alumno[i][0]}")
+
+            materias_alumno[i][1] = float(input("Ingrese la Nota 1 (0-10): "))
+            while (materias_alumno[i][1] < 0 or materias_alumno[i][1] > 10):
+                if (materias_alumno[i][1] < 0 or materias_alumno[i][1] > 10):
+                    print("Nota invalida. Intente de nuevo.")
+                materias_alumno[i][1] = float(input("Ingrese la Nota 1 (0-10): "))
+
+            materias_alumno[i][2] = float(input("Ingrese la Nota 2 (0-10): "))
+            while (materias_alumno[i][2] < 0 or materias_alumno[i][2] > 10):
+                if (materias_alumno[i][2] < 0 or materias_alumno[i][2] > 10):
+                    print("Nota invalida. Intente de nuevo.")
+                materias_alumno[i][2] = float(input("Ingrese la Nota 2 (0-10): "))
+
+            materias_alumno[i][3] = (materias_alumno[i][1] + materias_alumno[i][2]) / 2
+        
+        print("\nMaterias, Notas Ingresadas y Promedio:")
+        for i in range(1, len(materias_alumno)):
+            print(f"{materias_alumno[i][0]} - {materias_alumno[i][1]} /  {materias_alumno[i][2]} /  {materias_alumno[i][3]}")
+
+        print(" ")
+        print("Calificacion mas alta:\n")
+        max_calificacion = -1
+        materia_max = ""
+        for i in range(1, len(materias_alumno)):
+            if materias_alumno[i][3] > max_calificacion:
+                max_calificacion = materias_alumno[i][3]
+                materia_max = materias_alumno[i][0]
+        print(f"-  Alumno: {nombre} - Materia: {materia_max} - Calificacion: {max_calificacion}")
+
+        print(" ")
+        print("Promedio General del Alumno:\n")
+        suma = 0
+        for i in range(1, len(materias_alumno)):
+            suma += materias_alumno[i][3]
+        promedio = suma / (len(materias_alumno) - 1)
+        print(f"-  Alumno: {nombre} - Promedio General: {promedio}\n")
+
+        for fila in notas_finales:
+            if (fila[0] == nombre):
+                fila[1] = promedio
+
+def mejor_promedio(notas_finales):
+    max_promedio = -1
+    alumno_max = ""
+    for fila in notas_finales:
+        if fila[1] > max_promedio:
+            max_promedio = fila[1]
+            alumno_max = fila[0]
+    print(f"\nEl alumno con el mejor promedio es: {alumno_max} con un promedio de {max_promedio}!")
+
+alumnos = {
+    60902: "Rodolfo Fernandez",
+    61654: "Luis Gomez",
+    61852: "Andrea Pereira",
+    61754: "Juan Cruz Gonzales"
+}
+
+materias = [
+    ["Materia", "Nota1", "Nota2", "Promedio"],
+    ["Ciencias", 0 , 0 , 0],
+    ["Historia", 0 , 0 , 0],
+    ["Geografia", 0 , 0 , 0],
+    ["Matematicas", 0 , 0 , 0],
+    ["Fisica", 0 , 0 , 0]
+]
+
+notas_finales = [
+    ["Rodolfo Fernandez", 0],
+    ["Luis Gomez", 0],
+    ["Andrea Pereira", 0],
+    ["Juan Cruz Gonzales", 0]
+]
+
+opc = -1
+while (opc !=0):
+    print("\nMenu de opciones:")
+    print("1. Recorrer Diccionario de Alumnos")
+    print("2. Llenar Notas de Materias")
+    print("3. Mejor Promedio entre Alumnos")
+    print("0. Salir")
+    opc = int(input("Ingrese su opcion: "))
+    
+    if (opc == 1):
+        recorrer_Diccionario(alumnos)
+    elif (opc == 2):
+        llenar_notas_de_materias(materias, alumnos, notas_finales)
+    elif (opc == 3):
+        mejor_promedio(notas_finales)
+    elif (opc == 0):
+        print("\nSaliendo del programa...")

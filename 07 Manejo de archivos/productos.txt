@@ -1,0 +1,3 @@
+Banana,2300,12
+Sandia,3000,10
+Manzana,1400,15

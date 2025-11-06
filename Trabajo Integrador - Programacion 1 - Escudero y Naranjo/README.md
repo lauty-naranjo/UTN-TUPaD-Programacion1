@@ -2,14 +2,14 @@
 
 ## 📝 Descripción del Programa
 
-[cite_start]Este proyecto es el **Trabajo Práctico Integrador (TPI)** de la asignatura **Programación I**[cite: 1, 2]. [cite_start]Se trata de una aplicación de consola desarrollada en **Python** cuyo objetivo es gestionar información de países a partir de un archivo de valores separados por comas (**CSV**)[cite: 7, 86].
+Este proyecto es el **Trabajo Práctico Integrador (TPI)** de la asignatura **Programación I**[cite: 1, 2]. [cite_start]Se trata de una aplicación de consola desarrollada en **Python** cuyo objetivo es gestionar información de países a partir de un archivo de valores separados por comas (**CSV**)[cite: 7, 86].
 
-[cite_start]La aplicación implementa estructuras fundamentales de Programación I (listas, diccionarios, funciones, condicionales) [cite: 8, 124] para ofrecer un menú interactivo que permite al usuario realizar las siguientes operaciones:
+La aplicación implementa estructuras fundamentales de Programación I (listas, diccionarios, funciones, condicionales) [cite: 8, 124] para ofrecer un menú interactivo que permite al usuario realizar las siguientes operaciones:
 
-* [cite_start]**Carga de Datos:** Lee los datos de países desde el archivo `paises.csv`[cite: 13, 86].
-* [cite_start]**Búsqueda y Filtrado:** Permite la búsqueda por nombre y el filtrado por continente, rango de población o rango de superficie[cite: 8].
-* [cite_start]**Ordenamiento:** Reorganiza la lista de países por nombre, población o superficie (ascendente o descendente)[cite: 8].
-* [cite_start]**Estadísticas:** Calcula indicadores clave como el promedio de población y superficie, y el conteo de países por continente, además de identificar los países con mayor y menor población[cite: 8, 80].
+* **Carga de Datos:** Lee los datos de países desde el archivo `paises.csv`[cite: 13, 86].
+* **Búsqueda y Filtrado:** Permite la búsqueda por nombre y el filtrado por continente, rango de población o rango de superficie[cite: 8].
+* **Ordenamiento:** Reorganiza la lista de países por nombre, población o superficie (ascendente o descendente)[cite: 8].
+* **Estadísticas:** Calcula indicadores clave como el promedio de población y superficie, y el conteo de países por continente, además de identificar los países con mayor y menor población[cite: 8, 80].
 
 ---
 
@@ -113,7 +113,7 @@ Si desea ordenar los países por población de forma descendente:
 
 ## 👥 Participación de los Integrantes
 
-[cite_start]El proyecto fue desarrollado por **Lautaro Naranjo** y **Martin Escudero**[cite: 9, 10].
+El proyecto fue desarrollado por **Lautaro Naranjo** y **Martin Escudero**[cite: 9, 10].
 
 * **Lautaro Naranjo:**
     * Carga de datos desde CSV (`cargar_paises`).
@@ -124,4 +124,4 @@ Si desea ordenar los países por población de forma descendente:
     * Función de ordenamiento (`ordenar_paises`).
     * Función de estadísticas (`estadisticas`).
 
-[cite_start]Ambos trabajamos en la **integración final**, modificando y probando el código para garantizar la coherencia y correcta funcionalidad de los datos entre los módulos[cite: 136].
+Ambos trabajamos en la **integración final**, modificando y probando el código para garantizar la coherencia y correcta funcionalidad de los datos entre los módulos[cite: 136].
